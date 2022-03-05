@@ -1,12 +1,15 @@
 import Product from "../models/Product"
 
-export const createProduct = (req, res) => {
-    console.log(req.body)
-    res.json("dd")
+export const createProduct = async (req, res) => {
+   const {name, category, price} = req.body
+   const newProduct = new Product({name, category, price});
+   const productSaved = await newProduct.save()
+   res.status(201).json(productSaved)
 }
 
-export const getProduct = (req, res) => {
-    res.json("get proucts")
+export const getProduct = async (req, res) => {
+    const products = await Product.find();
+    res.json(products)
 }
 
 
