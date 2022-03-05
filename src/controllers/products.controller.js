@@ -1,6 +1,8 @@
+import Product from "../models/Product"
 
 export const createProduct = (req, res) => {
-
+    console.log(req.body)
+    res.json("dd")
 }
 
 export const getProduct = (req, res) => {
